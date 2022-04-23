@@ -1,0 +1,27 @@
+name: sys-auth
+
+selector:
+  app.kubernetes.io/component: api
+  dev.okteto.com/auto-ingress: "domain"
+
+workdir: /app
+
+persistentVolume:
+  enabled: true
+  storageClass: standard
+  size: 512Mi
+
+forward:
+- 8080:8080
+reverse:
+- 9000:9000
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "256m"
+  limits:
+    memory: "128Mi"
+    cpu: "512m"
+
+

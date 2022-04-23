@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    nodejs:
+      build: .
+      container_name: sys-cyberbot-auth
+      working_dir: /app
+      restart: always
+      environment: 
+        - NODE_ENV=production
+        - NODE_PATH=/app/node_modules
+        - LOG_DIRECTORY=/log
+      ports:
+        - "8080:8080"
+
+
